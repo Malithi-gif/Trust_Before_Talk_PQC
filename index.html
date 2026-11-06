@@ -258,6 +258,58 @@ table.data.ktable{min-width:980px}
 .kd{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 .kd.pub{background:var(--low)} .kd.priv{background:var(--crit)} .kd.sec{background:var(--accent)}
 .nokeys{font-size:14px;color:var(--muted);padding:8px 0}
+
+/* bottom line + conclusion */
+.bottomline{display:grid;grid-template-columns:auto 1fr auto;gap:10px 16px;align-items:center;border:1.5px solid var(--accent);border-left-width:6px;border-radius:12px;padding:12px 16px;background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.bottomline p{max-width:90ch}
+.bl-tag{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:600}
+@media (max-width:820px){.bottomline{grid-template-columns:1fr}}
+nav.tabs a.navc{color:var(--accent);font-weight:600}
+.concl{border:2px solid var(--accent);border-radius:16px;padding:26px 24px;background:color-mix(in srgb,var(--accent) 7%,var(--surface));display:grid;gap:16px}
+.concl-title{font-size:clamp(24px,3vw,34px);line-height:1.15;max-width:28ch}
+.concl-lede{font-size:16.5px;max-width:85ch}
+.concl-sub{font-size:18px;margin-top:4px}
+.bigstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.bs{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--obs);border-radius:12px;padding:14px;display:grid;gap:6px;align-content:start;font-size:14px}
+.bs.bad{border-top-color:var(--crit)} .bs.good{border-top-color:var(--low)}
+.bs .bn{font-family:var(--f-display);font-weight:800;font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+.bs.bad .bn{color:var(--crit)} .bs.good .bn{color:var(--low)}
+/* games */
+.game,.calc,.quiz{margin-top:16px}
+.game-head{display:flex;flex-wrap:wrap;gap:12px 20px;justify-content:space-between;align-items:flex-end;padding:16px 16px 10px}
+.game-head h3{font-size:18px;margin:2px 0 4px}
+.game-body{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px;padding:0 16px 16px;align-items:start}
+@media (max-width:900px){.game-body{grid-template-columns:1fr}}
+.game-play{display:grid;gap:12px;border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--surface-2)}
+.glen{display:grid;gap:4px}
+.gbtns{display:flex;gap:8px;flex-wrap:wrap}
+.gb{flex:1;min-width:90px}
+.gb.LOW{border-color:var(--low);color:var(--low)} .gb.MEDIUM{border-color:var(--med);color:var(--med)} .gb.CRITICAL{border-color:var(--crit);color:var(--crit)}
+.gb.picked{color:#fff} .gb.LOW.picked{background:var(--low)} .gb.MEDIUM.picked{background:var(--med)} .gb.CRITICAL.picked{background:var(--crit)}
+.gb:disabled{opacity:.5}
+.gb.picked:disabled,.gb.answer:disabled{opacity:1}
+.gb.answer{box-shadow:0 0 0 3px var(--surface-2),0 0 0 5px currentColor}
+.gres{font-weight:600;min-height:44px}
+.gres.ok{color:var(--low)} .gres.no{color:var(--crit)}
+.gres small{display:block;font-weight:400;color:var(--ink)}
+.gscore{display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap}
+.gscore > div{display:grid;gap:2px}
+.gscore .bignum{font-size:26px}
+.calc-out{padding:0 16px 16px;display:grid;gap:10px}
+.calc-verdict{font-size:15.5px;border-left:4px solid var(--accent);padding:6px 12px;background:var(--surface-2);border-radius:0 8px 8px 0}
+table.data.calc-table td{vertical-align:middle}
+.calc-table tr.best td{background:color-mix(in srgb,var(--low) 10%,transparent)}
+.mini{height:12px;border-radius:3px;background:var(--accent);display:inline-block;vertical-align:middle;margin-right:8px}
+.qlist{display:grid;gap:12px;padding:0 16px 16px}
+.q{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:8px;background:var(--surface)}
+.q p.qq{font-weight:600}
+.qopts{display:grid;gap:6px}
+.qopt{text-align:left;border:1px solid var(--line);background:var(--surface-2);border-radius:9px;padding:8px 12px;cursor:pointer;font-size:14px}
+.qopt:hover:not(:disabled){border-color:var(--accent)}
+.qopt.right{background:var(--low-bg);border-color:var(--low);color:var(--ink)}
+.qopt.wrong{background:var(--crit-bg);border-color:var(--crit)}
+.qopt:disabled{cursor:default}
+.qexp{font-size:14px;color:var(--muted)}
 footer{padding:30px 0 40px;color:var(--muted);font-size:13px}
 .sr{position:absolute;left:-9999px}
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
@@ -269,6 +321,11 @@ footer{padding:30px 0 40px;color:var(--muted);font-size:13px}
     <div class="kicker">Interactive companion · Post-quantum agent security</div>
     <h1>Trust Before Talk: watching risk-adaptive post-quantum protection work, and leak</h1>
     <p class="lede">A planner agent books a flight through a flight, calendar and payment agent. Every request is sealed with ML-KEM, HKDF-SHA256, AES-256-GCM and ML-DSA inside TLS 1.3. Run it step by step, open any message to see its keys and bytes, then switch on an attack or watch what a passive observer learns from request lengths alone.</p>
+    <div class="bottomline" role="note">
+      <span class="bl-tag">The bottom line</span>
+      <p>Adapting post-quantum protection to each request's risk <b>reveals that risk</b>: a passive observer reads every request's tier from its length alone. Stronger cryptography stopped <b>none</b> of the six attacks; deterministic authorization stopped <b>all six</b>.</p>
+      <a class="btn primary" href="#conclusion">Read the conclusion ↓</a>
+    </div>
     <div class="statusbar">
       <span class="badge" id="cryptoBadge"><span class="dot"></span><span id="cryptoText">Loading the post-quantum library…</span></span>
       <span class="badge" id="keysBadge"><span class="dot"></span><span id="keysText">Keys not provisioned yet</span></span>
@@ -276,7 +333,7 @@ footer{padding:30px 0 40px;color:var(--muted);font-size:13px}
   </div>
 </header>
 <nav class="tabs" aria-label="Sections"><div class="wrap">
-  <a href="#journey">1 · Step by step</a><a href="#live">2 · Live simulation</a><a href="#keys">3 · Keys &amp; parameters</a><a href="#attacks">4 · Attack lab</a><a href="#observer">5 · Observer lab</a><a href="#costs">6 · Costs &amp; lessons</a>
+  <a href="#journey">1 · Step by step</a><a href="#live">2 · Live simulation</a><a href="#keys">3 · Keys &amp; parameters</a><a href="#attacks">4 · Attack lab</a><a href="#observer">5 · Observer lab</a><a href="#costs">6 · Costs</a><a href="#conclusion" class="navc">7 · Conclusion</a>
 </div></nav>
 
 <main class="wrap">
@@ -289,7 +346,7 @@ footer{padding:30px 0 40px;color:var(--muted);font-size:13px}
   </div>
   <div class="panel jpanel">
     <div class="jbar">
-      <div class="btns"><button class="btn" id="jPrev">← Prev</button><button class="btn primary" id="jNext">Next →</button><span class="jcount" id="jCount" aria-live="polite">Step 1 of 17</span></div>
+      <div class="btns"><button class="btn" id="jPrev">← Prev</button><button class="btn primary" id="jNext">Next →</button><button class="btn" id="jAuto" aria-pressed="false">▶ Autoplay</button><span class="jcount" id="jCount" aria-live="polite">Step 1 of 17</span></div>
       <div class="dots" id="jDots" role="tablist" aria-label="Steps"></div>
     </div>
     <div class="jmain">
@@ -383,7 +440,7 @@ footer{padding:30px 0 40px;color:var(--muted);font-size:13px}
         <div class="tape" id="legendTiers"><span class="chip LOW">LOW 512/44</span><span class="chip MEDIUM">MEDIUM 768/65</span><span class="chip CRITICAL">CRITICAL 1024/87</span><span class="chip CTL">control layer</span><span class="chip ATK">attacker</span></div>
       </div>
       <div class="outcome">
-        <div class="banner" id="banner">Press Run to start. Keys are provisioned in advance, so there is no post-quantum handshake.</div>
+        <div class="banner" id="banner">Press Run to start. Keys are provisioned in advance.</div>
         <div class="tape" id="tape"><span class="cap">Observer's tape</span><span class="hint">Request lengths seen outside TLS will appear here.</span></div>
       </div>
       <div class="logbox" id="log" aria-live="polite"></div>
@@ -530,19 +587,43 @@ footer{padding:30px 0 40px;color:var(--muted);font-size:13px}
       <p class="hint" id="oNote">Paper, equalised payloads: adaptive recovers 100% of tiers, standard and fixed stay at 33%. Spread σ = 1 gives 93.1%, σ = 2 gives 74.0%, λ = 4 gives 58.7%.</p>
     </div>
   </div>
+
+  <div class="panel game" id="game">
+    <div class="game-head">
+      <div><span class="kicker">Your turn</span><h3>Be the observer: guess the tier from the length alone</h3>
+      <p class="hint">You can't read anything inside TLS. You only see how many bytes went past, plus a few earlier requests whose tiers you already worked out.</p></div>
+      <div class="ctl" style="min-width:250px"><label class="cap" for="gCfg">Design under test</label>
+        <select id="gCfg">
+          <option value="adaptive+dcl">Adaptive + DCL (as tested in the paper)</option>
+          <option value="fixed+dcl">Fixed + DCL (inline tokens)</option>
+          <option value="fixed+dcl+ref">Recommended: fixed + fixed-size token reference</option>
+        </select></div>
+    </div>
+    <div class="game-body">
+      <div class="isec"><span class="cap">Earlier traffic you already labelled</span><div class="tape" id="gTrain"></div></div>
+      <div class="game-play">
+        <div class="glen"><span class="cap">Next request on the wire</span><span class="bignum" id="gLen">–</span><span class="hint" id="gLenSub">bytes</span></div>
+        <div class="gbtns" role="group" aria-label="Your guess">
+          <button class="btn gb LOW" data-g="LOW">LOW</button><button class="btn gb MEDIUM" data-g="MEDIUM">MEDIUM</button><button class="btn gb CRITICAL" data-g="CRITICAL">CRITICAL</button>
+        </div>
+        <div class="gres" id="gRes" aria-live="polite">Pick a tier.</div>
+        <div class="gscore"><div><span class="cap">Your score</span><span class="bignum" id="gScore">0 / 0</span></div><div><span class="cap">Chance</span><span class="bignum" style="color:var(--muted)">33%</span></div><button class="btn" id="gNext">Next request →</button></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ COSTS ============ -->
 <section class="block" id="costs">
   <div class="sec-head">
-    <h2>Costs, mitigations and lessons</h2>
+    <h2>Costs and mitigations</h2>
     <p>Adaptation saves 1,606 bytes on each LOW request but adds 2,406 bytes on each CRITICAL one, so it only pays off with more than 1.5 LOW requests per CRITICAL request. Every padding scheme that removes the leak costs more than that.</p>
   </div>
   <div class="grid2">
     <div class="panel pad" style="display:grid;gap:12px">
       <h3>Per-request cryptographic cost (ms)</h3>
       <div class="bars" id="costBars"></div>
-      <p class="hint">Paper: Intel i7-10700K, Python pqcrypto. Here: your browser running JavaScript. ML-DSA signing dominates sender time (about 99% in the paper).</p>
+      <p class="hint">Measured in the paper on an Intel Core i7-10700K (Python 3.10, pqcrypto 1.0.0). Sender = encapsulate + HKDF + AES-GCM + sign; receiver = verify + decapsulate. ML-DSA signing is about 99% of sender time. The first call in a fresh process takes a median 85.4 ms because of library loading.</p>
     </div>
     <div class="panel pad" style="display:grid;gap:12px">
       <h3>Request size by component (kB on the wire)</h3>
@@ -563,10 +644,49 @@ footer{padding:30px 0 40px;color:var(--muted);font-size:13px}
         <tr><td>Uniform parameters + fixed-width headers + constant-size token reference</td><td class="num">&lt; 0.01</td><td class="num">−10.5%</td><td><span class="chip OK">recommended</span></td></tr>
       </tbody></table></div>
   </div>
-  <div class="grid3" style="margin-top:16px">
-    <div class="card lesson"><span class="cap">Lesson 1</span><h3>Make policy deterministic</h3><p>Minimum protection and authorization come from the action, not the model. Risk assessment may raise protection but never lower it.</p></div>
-    <div class="card lesson"><span class="cap">Lesson 2</span><h3>Sizes are a side channel</h3><p>Risk-dependent artifacts such as tokens, labels and parameter sets announce themselves through their length, even inside TLS.</p></div>
-    <div class="card lesson"><span class="cap">Lesson 3</span><h3>Prefer uniform parameters</h3><p>Choose one parameter set from confidentiality and signature-lifetime needs, and carry authorization as a fixed-size reference.</p></div>
+  <div class="panel calc" id="calc">
+    <div class="game-head">
+      <div><span class="kicker">Your turn</span><h3>Design calculator: which protection would you deploy?</h3>
+      <p class="hint">Describe one workflow. The calculator builds the envelopes for each design, adds up the bytes, and runs the observer's classifier against each design.</p></div>
+    </div>
+    <div class="controls" style="padding:0 16px">
+      <div class="ctl"><label class="cap" for="cL">LOW requests (searches): <span class="mono" id="cLV">1</span></label><input type="range" id="cL" min="0" max="12" value="1"></div>
+      <div class="ctl"><label class="cap" for="cM">MEDIUM requests (private data): <span class="mono" id="cMV">1</span></label><input type="range" id="cM" min="0" max="12" value="1"></div>
+      <div class="ctl"><label class="cap" for="cC">CRITICAL requests (payments): <span class="mono" id="cCV">1</span></label><input type="range" id="cC" min="0" max="6" value="1"></div>
+      <div class="ctl"><span class="cap">Authorization</span><label class="switch"><input type="checkbox" id="cDcl" checked> Deterministic control layer on</label><span class="hint">Try switching it off.</span></div>
+    </div>
+    <div class="calc-out">
+      <p class="calc-verdict" id="cVerdict"></p>
+      <div class="tbl-wrap"><table class="data calc-table" id="cTable"></table></div>
+      <p class="hint">Bytes come from this page's envelope encoder (128-byte payloads, fixed-width headers). Tier recovery is the observer's k-NN classifier on 200 mixed workflows with equal payloads. Attack success is for A1–A6 over 100 trials each, as in the attack lab.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCLUSION ============ -->
+<section class="block" id="conclusion">
+  <div class="concl">
+    <span class="kicker">Final conclusion</span>
+    <h2 class="concl-title">Cryptography alone cannot secure agent actions. Establish trust before talk.</h2>
+    <p class="concl-lede">Risk-adaptive post-quantum protection hides what agents say but announces how important the system thinks each message is. And no choice of cryptographic strength stops a manipulated model from authorizing the wrong action. What protects agents is deterministic authorization, decided before they communicate, together with protection that looks the same for every request.</p>
+    <div class="bigstats">
+      <div class="bs bad"><span class="bn">100%</span><span>of request tiers recovered by a passive observer from length alone under adaptive protection (chance is 33%).</span></div>
+      <div class="bs good"><span class="bn">0%</span><span>attack success with the deterministic control layer, against 80–100% without it, the same under plain HTTPS, fixed and adaptive post-quantum protection.</span></div>
+      <div class="bs bad"><span class="bn">+437%</span><span>extra bandwidth to remove the leak by padding every request to the largest size.</span></div>
+      <div class="bs good"><span class="bn">&lt; 0.01 bits</span><span>of tier information left with uniform parameters and a fixed-size token reference, using 10.5% fewer bytes.</span></div>
+    </div>
+    <h3 class="concl-sub">What to do</h3>
+    <div class="grid3">
+      <div class="card lesson"><span class="cap">Lesson 1</span><h3>Make policy deterministic</h3><p>Minimum protection and authorization come from the action, not the model. Risk assessment may raise protection but never lower it.</p></div>
+      <div class="card lesson"><span class="cap">Lesson 2</span><h3>Sizes are a side channel</h3><p>Risk-dependent artifacts such as tokens, labels and parameter sets announce themselves through their length, even inside TLS.</p></div>
+      <div class="card lesson"><span class="cap">Lesson 3</span><h3>Prefer uniform parameters</h3><p>Choose one parameter set from confidentiality and signature-lifetime needs, and carry authorization as a fixed-size reference.</p></div>
+    </div>
+    <p class="hint">Limitations noted in the paper: most attack trials use a scripted assessor, static keys give no forward secrecy, and the study covers one application domain and a single-gateway observer.</p>
+  </div>
+
+  <div class="panel quiz" id="quiz">
+    <div class="game-head"><div><span class="kicker">Check yourself</span><h3>Five quick questions</h3></div><div class="gscore"><div><span class="cap">Score</span><span class="bignum" id="qScore">0 / 5</span></div><button class="btn" id="qReset">Start over</button></div></div>
+    <div id="qList" class="qlist"></div>
   </div>
 </section>
 </main>
@@ -1548,7 +1668,7 @@ $('#bReset').onclick = async ()=>{
   if(ctl.running){ ctl.abort = true; release(); try{ await ctl.runP; }catch(_){} }
   ctl.abort = false; stageReset(cfgNow(), $('#scenario').value!=='normal'); $('#log').innerHTML='';
   $('#iTitle').textContent='Nothing selected'; $('#iBody').innerHTML='<p class="hint">Each message you run lands here with its keys, the bytes it carries and every check the receiver performs.</p>';
-  setBanner('', 'Press Run to start. Keys are provisioned in advance, so there is no post-quantum handshake.'); renderTape(); setRunUI();
+  setBanner('', 'Press Run to start. Keys are provisioned in advance.'); renderTape(); setRunUI();
 };
 $('#speed').oninput = e=>{ ctl.speed = parseFloat(e.target.value); $('#speedV').textContent = ctl.speed+'×'; };
 $$('#modeSeg button').forEach(b=>b.onclick = ()=>{ UI.mode = b.dataset.mode; $$('#modeSeg button').forEach(x=>x.setAttribute('aria-pressed', x===b ? 'true':'false')); $('#modeHint').textContent = MODE_HINT[UI.mode]; if(!ctl.running) stageReset(cfgNow(), $('#scenario').value!=='normal'); });
@@ -1749,14 +1869,13 @@ async function bench(){
   BENCH = out; renderCosts();
 }
 function renderCosts(){
-  const max = Math.max(13, ...(BENCH ? TIER_LIST.map(t=>BENCH[t].send) : [0]));
+  const max = 13;
   const rows = [];
   TIER_LIST.forEach(t=>{
-    rows.push(['Paper · '+t+' sender', PAPER_MS[t].send, `var(--${t==='LOW'?'low':t==='MEDIUM'?'med':'crit'})`]);
-    rows.push(['Paper · '+t+' receiver', PAPER_MS[t].recv, `color-mix(in srgb, var(--${t==='LOW'?'low':t==='MEDIUM'?'med':'crit'}) 45%, var(--surface-2))`]);
-    if(BENCH){ rows.push(['Browser · '+t+' sender', BENCH[t].send, 'var(--accent)']); rows.push(['Browser · '+t+' receiver', BENCH[t].recv, 'color-mix(in srgb, var(--accent) 45%, var(--surface-2))']); }
+    rows.push([t+' · sender', PAPER_MS[t].send, `var(--${t==='LOW'?'low':t==='MEDIUM'?'med':'crit'})`]);
+    rows.push([t+' · receiver', PAPER_MS[t].recv, `color-mix(in srgb, var(--${t==='LOW'?'low':t==='MEDIUM'?'med':'crit'}) 45%, var(--surface-2))`]);
   });
-  $('#costBars').innerHTML = rows.map(r=>`<div class="barrow"><span>${esc(r[0])}</span><span class="track"><span style="width:${Math.max(0.6, r[1]/max*100)}%;background:${r[2]}"></span></span><span class="v">${fmtMs(r[1])}</span></div>`).join('') + (BENCH ? '' : '<p class="hint">Measuring in your browser…</p>') + (BENCH && !PQ.real ? '<p class="hint">Library unavailable, so browser timings are for the stand-ins and are not meaningful.</p>' : '');
+  $('#costBars').innerHTML = rows.map(r=>`<div class="barrow"><span>${esc(r[0])}</span><span class="track"><span style="width:${Math.max(0.6, r[1]/max*100)}%;background:${r[2]}"></span></span><span class="v">${fmtMs(r[1])}</span></div>`).join('');
   // size bars
   const segs = [['KEM ciphertext','var(--accent)'],['Signature','var(--crit)'],['Token','var(--ctrl)'],['Payload','var(--low)'],['Header','var(--obs)'],['HTTP + TLS','var(--line)']];
   const comp = (mode, tier, action, dest, tok)=>{ const p = paramsFor(tier, mode); const kem = Math.ceil(SIZES.kem[p.kem].ct/3)*4, sig = Math.ceil(SIZES.dsa[p.dsa].sig/3)*4, tk = tok ? JSON.stringify(dummyToken()).length : 0, pl = Math.ceil((PAYLOAD+16)/3)*4; const wire = sizeModel(tier, action, dest, {mode, pad:false}, tok).wire; return {vals:[kem, sig, tk, pl, 0, 0], wire}; };
@@ -1785,7 +1904,6 @@ async function boot(){
   $('#keysBadge').className = 'badge ok'; $('#keysText').textContent = `13 key pairs provisioned in advance (${fmtMs(kt)})`;
   renderKeyring(); renderSizeTable(); setRunUI(); $('#bReprov').disabled = false; if(typeof renderJourney==='function') renderJourney();
   runTrials(); runObs();
-  await bench();
 }
 $('#bReprov').onclick = async ()=>{ if(ctl.running) return; $('#bReprov').disabled = true; keys = null; renderKeyring(); setRunUI(); const t0=now(); await provision(); $('#keysText').textContent = `13 key pairs re-provisioned (${fmtMs(now()-t0)})`; renderKeyring(); setRunUI(); $('#bReprov').disabled = false; };
 boot();
@@ -1824,7 +1942,7 @@ const ENV = {
 const pub = t=>({c:'pub', t}), priv = t=>({c:'priv', t}), sec = t=>({c:'sec', t}), info = t=>({c:'info', t});
 const STEPS = [
  {ch:'Chapter 1 · Before any request', title:'Keys are provisioned in advance',
-  text:'Before the first request, every party receives its own key pairs and the trusted public keys of the others. Because keys are provisioned in advance, no post-quantum handshake happens per request. Each receiving agent holds ML-KEM key pairs at all three levels, since a tier can be raised. The planner holds one ML-DSA signing key per tier, and the control layer holds an ML-DSA-87 key for delegation tokens.',
+  text:'Before the first request, every party receives its own key pairs and the trusted public keys of the others. Each receiving agent holds ML-KEM key pairs at all three levels, since a tier can be raised. The planner holds one ML-DSA signing key per tier, and the control layer holds an ML-DSA-87 key for delegation tokens.',
   active:['planner','control','flight','calendar','payment'],
   notes:{planner:[priv('holds ML-DSA-44 / 65 / 87 private keys'), pub('has every agent’s ML-KEM public keys')], control:[priv('holds its ML-DSA-87 token key')], flight:[priv('holds ML-KEM-512 / 768 / 1024 private keys'), pub('has the planner’s ML-DSA public keys')], calendar:[priv('holds ML-KEM-512 / 768 / 1024 private keys'), pub('has the planner’s ML-DSA public keys')], payment:[priv('holds ML-KEM-512 / 768 / 1024 private keys'), pub('has the planner’s and the control layer’s ML-DSA public keys')]},
   ops:[['ML-KEM key generation','9 key pairs: 3 levels × 3 agents'],['ML-DSA key generation','3 planner pairs + 1 control-layer pair'],['Distribute public keys','shared and trusted in advance'],['Keep private keys','they never leave their owner']],
@@ -2011,6 +2129,158 @@ document.addEventListener('keydown', e=>{
   e.preventDefault(); jGo(e.key==='ArrowRight' ? 1 : -1);
 });
 renderJourney();
+</script>
+
+<script>
+// =====================================================================
+// Journey autoplay
+// =====================================================================
+(function(){
+  let timer = null; const b = $('#jAuto');
+  function stop(){ clearInterval(timer); timer = null; b.setAttribute('aria-pressed','false'); b.textContent = '▶ Autoplay'; }
+  b.onclick = ()=>{
+    if(timer){ stop(); return; }
+    if(jStep===STEPS.length-1){ jStep = 0; renderJourney(); }
+    b.setAttribute('aria-pressed','true'); b.textContent = '❚❚ Pause';
+    timer = setInterval(()=>{ if(jStep>=STEPS.length-1){ stop(); return; } jStep++; renderJourney(); }, 7000);
+  };
+  ['#jPrev','#jNext'].forEach(id=>$(id).addEventListener('click', ()=>{ if(timer) stop(); }));
+  $('#jDots').addEventListener('click', ()=>{ if(timer) stop(); });
+})();
+
+// =====================================================================
+// Be the observer (game)
+// =====================================================================
+const GAME = {score:0, total:0, cur:null, answered:false};
+const ACT_LABEL = {search_flights:'flight search', search_hotels:'hotel search', read_calendar:'calendar read', read_contacts:'contacts read', make_payment:'payment', cancel_booking:'booking cancellation'};
+function gSample(){
+  const cfg = parseObsCfg($('#gCfg').value);
+  const act = OBS_ACTIONS[Math.floor(Math.random()*OBS_ACTIONS.length)];
+  return {t:act.t, a:act.a, len:reqWire(act, cfg, samplePayload(0.12))};
+}
+function gTrain(){
+  const items = [];
+  for(const t of TIER_LIST){ const acts = OBS_ACTIONS.filter(a=>a.t===t); for(let i=0;i<2;i++){ const cfg = parseObsCfg($('#gCfg').value); const a = acts[i%acts.length]; items.push({t, len:reqWire(a, cfg, samplePayload(0.12))}); } }
+  items.sort(()=>Math.random()-.5);
+  $('#gTrain').innerHTML = items.map(x=>`<span class="chip ${x.t}">${nf(x.len)} B → ${x.t}</span>`).join('');
+}
+function gNew(){
+  GAME.cur = gSample(); GAME.answered = false;
+  $('#gLen').textContent = nf(GAME.cur.len); $('#gLenSub').textContent = 'bytes on the wire · what tier is it?';
+  $('#gRes').className = 'gres'; $('#gRes').textContent = 'Pick a tier.';
+  $$('.gb').forEach(b=>{ b.classList.remove('picked','answer'); b.disabled = false; });
+}
+$$('.gb').forEach(b=>b.onclick = ()=>{
+  if(GAME.answered) return; GAME.answered = true;
+  const g = b.dataset.g, ok = g===GAME.cur.t; GAME.total++; if(ok) GAME.score++;
+  b.classList.add('picked'); $$('.gb').forEach(x=>{ x.disabled = true; if(x.dataset.g===GAME.cur.t) x.classList.add('answer'); });
+  const pct = Math.round(GAME.score/GAME.total*100);
+  $('#gScore').textContent = `${GAME.score} / ${GAME.total}`;
+  const v = $('#gCfg').value;
+  const why = v==='adaptive+dcl' ? 'Each tier uses a different parameter set, so each has its own size. That is the leak.'
+    : v==='fixed+dcl' ? (GAME.cur.t==='CRITICAL' ? 'Every request uses 768/65, but the inline delegation token makes CRITICAL requests about twice as long.' : 'LOW and MEDIUM requests are the same size here, so you can only guess between them; only CRITICAL stands out because of its token.')
+    : 'Every request has the same parameters and the same fixed-size token reference, so length says nothing. Any score near 33% is luck.';
+  $('#gRes').className = 'gres ' + (ok ? 'ok' : 'no');
+  $('#gRes').innerHTML = `${ok ? 'Correct' : 'Not this time'}: it was a ${esc(ACT_LABEL[GAME.cur.a])}, tier ${GAME.cur.t}. <small>${esc(why)} Your hit rate so far: ${pct}%.</small>`;
+});
+$('#gNext').onclick = gNew;
+$('#gCfg').onchange = ()=>{ GAME.score = 0; GAME.total = 0; $('#gScore').textContent = '0 / 0'; gTrain(); gNew(); };
+gTrain(); gNew();
+
+// =====================================================================
+// Design calculator
+// =====================================================================
+const CALC_SCHEMES = [
+  {key:'adaptive+dcl', name:'Adaptive (512/44 · 768/65 · 1024/87), inline token', cfg:{mode:'adaptive'}},
+  {key:'fixed+dcl', name:'Fixed 768/65, inline token', cfg:{mode:'fixed'}},
+  {key:'fixed+dcl+pad', name:'Fixed 768/65, padded to 17,316 B', cfg:{mode:'fixed', pad:true}},
+  {key:'fixed+dcl+ref', name:'Fixed 768/65, fixed-size token reference', cfg:{mode:'fixed', refToken:true}, rec:true}
+];
+const RECOVERY = {};
+function calcRecovery(){
+  for(const s of CALC_SCHEMES){ let acc = 0; for(let r=0;r<2;r++) acc += simulateObserver(s.key, 0, 0, 200).bal; RECOVERY[s.key] = acc/2; }
+}
+function attackRate(dcl){
+  const c = dcl ? {guardrail:1, delegation:1, replay:1, audit:1} : {};
+  let hit = 0, n = 0;
+  for(const a of ATTACKS) for(let i=0;i<100;i++){ n++; if(attackSucceeds(a, Math.random(), c)) hit++; }
+  return hit/n;
+}
+function renderCalc(){
+  const nL = +$('#cL').value, nM = +$('#cM').value, nC = +$('#cC').value, dcl = $('#cDcl').checked;
+  $('#cLV').textContent = nL; $('#cMV').textContent = nM; $('#cCV').textContent = nC;
+  const rows = CALC_SCHEMES.map(s=>{
+    const L = sizeModel('LOW','search_flights','flight',s.cfg,false).wire;
+    const M = sizeModel('MEDIUM','read_calendar','calendar',s.cfg,false).wire;
+    const C = sizeModel('CRITICAL','make_payment','payment',s.cfg,dcl && !s.cfg.refToken).wire;
+    const bytes = nL*L + nM*M + nC*C;
+    return {...s, bytes, rec:RECOVERY[s.key] ?? null, isRec:s.rec};
+  });
+  const base = rows[1].bytes || 1, maxB = Math.max(...rows.map(r=>r.bytes), 1);
+  const atk = attackRate(dcl);
+  // best: lowest recovery (rounded), then fewest bytes
+  const best = rows.slice().sort((a,b)=> (Math.round(a.rec*20) - Math.round(b.rec*20)) || (a.bytes-b.bytes))[0];
+  $('#cTable').innerHTML = `<thead><tr><th>Design</th><th class="num">Bytes per workflow</th><th class="num">vs Fixed 768/65</th><th class="num">Observer recovers tier</th><th class="num">Attacks that succeed</th><th></th></tr></thead><tbody>${rows.map(r=>{
+    const d = (r.bytes/base - 1)*100; const recPct = r.rec==null ? '…' : Math.round(r.rec*100)+'%';
+    const leakChip = r.rec==null ? '' : r.rec > 0.45 ? chip('leaks tier','BAD') : chip('no leak','OK');
+    return `<tr class="${r===best?'best':''}"><td style="white-space:normal;min-width:220px">${esc(r.name)}</td>
+      <td class="num"><span class="mini" style="width:${Math.max(2, r.bytes/maxB*120)}px"></span>${nf(r.bytes)}</td>
+      <td class="num">${r===rows[1] ? '—' : (d>=0?'+':'')+d.toFixed(1)+'%'}</td>
+      <td class="num">${recPct} ${leakChip}</td>
+      <td class="num">${Math.round(atk*100)}% ${dcl ? chip('blocked','OK') : chip('exposed','BAD')}</td>
+      <td>${r===best ? chip('best choice','OK') : ''}</td></tr>`; }).join('')}</tbody>`;
+  const ad = rows[0].bytes - rows[1].bytes;
+  const lowGain = sizeModel('LOW','search_flights','flight',{mode:'fixed'},false).wire - sizeModel('LOW','search_flights','flight',{mode:'adaptive'},false).wire;
+  const critCost = sizeModel('CRITICAL','make_payment','payment',{mode:'adaptive'},dcl).wire - sizeModel('CRITICAL','make_payment','payment',{mode:'fixed'},dcl).wire;
+  let v = '';
+  if(nL+nM+nC===0) v = 'Add some requests to compare the designs.';
+  else {
+    v = ad < 0 ? `Adaptive saves ${nf(-ad)} bytes (${(-ad/base*100).toFixed(1)}%) on this workflow, ` : `Adaptive costs ${nf(ad)} more bytes (+${(ad/base*100).toFixed(1)}%) on this workflow, `;
+    v += `because each LOW request saves ${nf(lowGain)} B while each CRITICAL one adds ${nf(critCost)} B. Either way it reveals every tier. `;
+    v += `The fixed-size token reference closes the leak and is the smallest design here. `;
+    v += dcl ? 'With the control layer on, no design lets an attack through.' : `<b>With the control layer off, ${Math.round(atk*100)}% of attacks succeed under every design: stronger cryptography does not help.</b>`;
+  }
+  $('#cVerdict').innerHTML = v;
+}
+['#cL','#cM','#cC','#cDcl'].forEach(id=>$(id).addEventListener('input', renderCalc));
+renderCalc();
+setTimeout(()=>{ calcRecovery(); renderCalc(); }, 50);
+
+// =====================================================================
+// Quiz
+// =====================================================================
+const QUIZ = [
+  {q:'An observer outside TLS cannot decrypt anything. How does it learn each request\'s risk tier under adaptive protection?',
+   o:['From the length of each request','By breaking ML-KEM-512','From the agents\' port numbers','From timing of the replies'], a:0,
+   e:'Post-quantum artifact sizes are fixed and public, so 5.0, 6.6 and 15.5 kB map straight to LOW, MEDIUM and CRITICAL. All agents sat behind one gateway, so ports gave nothing away.'},
+  {q:'Which configuration stopped attacks A1–A4 (manipulating the tier the model assigns)?',
+   o:['Adaptive post-quantum protection at CRITICAL','The minimum-tier guardrail in the control layer','The audit log','Padding every request'], a:1,
+   e:'The guardrail sets tier = max(proposed, floor), so a manipulated LOW label for a payment is raised back to CRITICAL. Audit logging stopped nothing; it only supports investigation afterwards.'},
+  {q:'Without the control layer, how did attack success compare across plain HTTPS, fixed and adaptive post-quantum protection?',
+   o:['Adaptive was safest','Fixed was safest','Identical in all three','Plain HTTPS was safest'], a:2,
+   e:'The attacks target authorization decisions, not cryptography, so success was 80, 9, 85, 85, 100 and 100% in every mode.'},
+  {q:'Why must the planner sign the tier field of every envelope?',
+   o:['To make the envelope smaller','So nobody can forge a LOW request or lower a real request\'s tier unnoticed','Because AES-GCM needs it','To hide the tier from the observer'], a:1,
+   e:'Anyone can encapsulate to a receiver\'s public key. Signing every field, tier and token included, binds them to the planner and makes tampering detectable.'},
+  {q:'Which fix removes the length leak while using the fewest bytes?',
+   o:['Pad every request to 17,316 bytes','Padme padding','Uniform parameters with a fixed-size token reference','TLS record padding to 1 KiB'], a:2,
+   e:'Uniform ML-KEM-768 + ML-DSA-65 with fixed-width headers and a constant-size token reference leaves under 0.01 bits and uses 10.5% fewer bytes. Padding to the maximum also works but costs +437%.'}
+];
+const QS = {answers:{}};
+function renderQuiz(){
+  $('#qList').innerHTML = QUIZ.map((x,i)=>{
+    const ans = QS.answers[i];
+    return `<div class="q"><p class="qq">${i+1}. ${esc(x.q)}</p><div class="qopts">${x.o.map((o,j)=>{
+      let cls = ''; if(ans!==undefined){ if(j===x.a) cls='right'; else if(j===ans) cls='wrong'; }
+      return `<button class="qopt ${cls}" data-q="${i}" data-o="${j}" ${ans!==undefined?'disabled':''}>${esc(o)}</button>`; }).join('')}</div>
+      ${ans!==undefined ? `<p class="qexp"><b style="color:${ans===x.a?'var(--low)':'var(--crit)'}">${ans===x.a?'Correct.':'Not quite.'}</b> ${esc(x.e)}</p>` : ''}</div>`;
+  }).join('');
+  const score = Object.entries(QS.answers).filter(([i,a])=>QUIZ[i].a===a).length;
+  $('#qScore').textContent = `${score} / ${QUIZ.length}`;
+  $$('.qopt').forEach(b=>b.onclick = ()=>{ QS.answers[+b.dataset.q] = +b.dataset.o; renderQuiz(); });
+}
+$('#qReset').onclick = ()=>{ QS.answers = {}; renderQuiz(); };
+renderQuiz();
 </script>
 
 </body>
