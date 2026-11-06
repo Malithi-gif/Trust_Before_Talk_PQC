@@ -13,10 +13,5 @@ An interactive website for the article **“Trust Before Talk: Security and Priv
 
 ML-KEM and ML-DSA run in the browser through [noble-post-quantum](https://github.com/paulmillr/noble-post-quantum) loaded from jsDelivr; HKDF and AES-GCM use WebCrypto. If the library cannot load, the page falls back to byte-accurate stand-ins and says so in a badge at the top. The language-model assessor and the agents' answers are scripted.
 
-## Publish with GitHub Pages
 
-1. Create a repository and upload `index.html`, `README.md` and `.nojekyll` to the root of the `main` branch.
-2. In the repository, open **Settings → Pages**, set **Source** to “Deploy from a branch”, choose `main` and `/ (root)`, and save.
-3. After a minute the site is live at `https://<your-user>.github.io/<repository>/`.
 
-It is a single static file with no build step.
